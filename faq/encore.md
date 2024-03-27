@@ -1,13 +1,37 @@
-1. DB performance tuning.
-2. DB Isolation level
-3. Dirty read
-4. Using jdk-8, print array of name => char & their frequecny count
-5. How would you store password in DB? => BCrypt & Salt
-6. Sql injection?
-7. Differnce between object level lock & class level lock
-8. Proxy Design pattern implementation and real time usage.
-9. Different types of GC
+1. DB performance tuning
    -
+         Answer.
+   
+3. DB Isolation level
+   -
+         Answer.
+   
+5. Dirty read
+   -
+         Answer.
+
+6. Using jdk-8, print array of name => char & their frequecny count
+   -
+         Answer.
+   
+7. How would you store password in DB? => BCrypt & Salt
+   -
+         Answer.
+
+8. Sql injection?
+   -
+         Answer.
+
+9. Differnce between object level lock & class level lock
+   -
+         Answer.
+   
+10. Proxy Design pattern implementation and real time usage.
+    -
+         Answer.
+   
+11. Different types of GC
+    -
         1. **Serial GC** -> runs on single core ( app run > GC pause(mark,sweep,compacting) > again app run > and so on 
         2. **Parallel GC **-> Same as Serial GC but GC runs on multiple cores 
         3. **Concurrrent Mark and Sweep GC** => app run > shorter GC pause for mark but sweep,compacting can be done with app run (no separate pause) > and so on 
@@ -17,5 +41,6 @@
 
 11. Parallel GC VS CMS GC
     -
-        Parallel GC is similar to Serial GC but GC runs on multiple cores
-        Whereas app run > shorter GC pause for mark and remark but sweep,compacting can be done with app run (no separate pause) > and so on 
+        - Parallel GC is similar to Serial GC but GC runs on multiple cores
+        - Whereas app run > shorter GC pause for mark and remark but sweep,compacting can be done with app run (no separate pause) > and so on 
+12. 
