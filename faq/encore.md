@@ -1,5 +1,5 @@
-1. DB performance tuning
-   -
+DB performance tuning
+-
    Database performance tuning is a critical aspect of ensuring that database systems operate efficiently and effectively. Here are some key strategies for tuning database performance:
 
    **Indexing:**
@@ -35,8 +35,8 @@
    By employing these strategies and continuously monitoring and optimizing database performance, organizations can ensure that their database systems meet performance requirements and scale effectively to handle growing workloads.
 
    
-3. Database Isolation level
-   -
+Database Isolation level
+-
 
 **Read Uncommitted:**
 - This is the lowest isolation level. Transactions can read data that has been modified but not yet committed by other transactions, leading to dirty reads, non-repeatable reads, and phantom reads.
@@ -58,8 +58,9 @@ The choice of isolation level depends on the application requirements for data c
 It's important for developers and database administrators to understand the characteristics and trade-offs of each isolation level and select the appropriate level based on the specific requirements of their applications. Additionally, some database systems may offer additional isolation levels or customizable isolation configurations beyond the standard levels defined by SQL standards.
 
    
-5. Dirty read
-   -
+Dirty read
+-
+
 - A dirty read occurs in a database transaction when one transaction reads data from a row that has been modified by another transaction but not yet committed. This means that the data being read might be in an inconsistent or intermediate state.
 
 - For example, consider Transaction A updating a particular row in a database and Transaction B reading that row before Transaction A commits its changes. If Transaction A ultimately rolls back its changes, Transaction B would have read data that was never meant to be persisted, leading to a dirty read.
@@ -69,8 +70,8 @@ It's important for developers and database administrators to understand the char
 - To prevent dirty reads, databases typically implement isolation levels that control the visibility of data modifications made by concurrent transactions, ensuring that transactions see a consistent view of the database. These isolation levels, such as Read Committed or Serializable, help maintain data consistency and prevent concurrency anomalies.
 
 
-6. Using jdk-8, print array of name => char & their frequecny count
-   -
+Using jdk-8, print array of name => char & their frequecny count
+-
    
          import java.util.Arrays;
          import java.util.Map;
@@ -98,8 +99,9 @@ It's important for developers and database administrators to understand the char
          }
 
    
-8. How would you store password in DB? => BCrypt & Salt
-   -
+How would you store password in DB? => BCrypt & Salt
+-
+
 - In Java, you can securely store passwords in a database using hashing and salting techniques. Here's a basic example using the bcrypt hashing algorithm with the BCrypt library:
 
 - Add Dependency: First, you need to add the jBCrypt library to your project. You can do this by including the appropriate dependency in your build configuration. If you're using Maven, add the following dependency to your pom.xml:
@@ -150,8 +152,8 @@ When a user logs in, you can retrieve the hashed password and salt from the data
 - Remember to handle exceptions and error cases appropriately, and consider additional security measures such as encryption for sensitive data and secure transmission of passwords.
 
 
-8. Sql injection?
-   -
+Sql injection?
+-
    
 - SQL injection in Java typically occurs when user input is concatenated directly into SQL queries without proper validation or parameterization. Here's an example of how SQL injection can occur in a Java application:
 
@@ -234,8 +236,9 @@ When a user logs in, you can retrieve the hashed password and salt from the data
 - With parameterized queries, the user input is treated as a parameter value rather than part of the SQL query itself, effectively preventing SQL injection attacks.
 
 
-9. Differnce between object level lock & class level lock
-   -
+Differnce between object level lock & class level lock
+-
+
 - Object-level locking and class-level locking are two concurrency control mechanisms used in Java to synchronize access to shared resources among multiple threads. Here's the difference between them:
 
 **Object-Level Locking:**
@@ -362,20 +365,25 @@ The Proxy Design Pattern is commonly used in various scenarios, such as:
 In real-world applications, you may encounter situations where using proxies can simplify system architecture, improve performance, or add additional functionality without modifying existing code.
 
 
-11. Different types of GC
-    -
-1. **Serial GC** -> runs on single core ( app run > GC pause(mark,sweep,compacting) > again app run > and so on 
-2. **Parallel GC **-> Same as Serial GC but GC runs on multiple cores 
-3. **Concurrrent Mark and Sweep GC** => app run > shorter GC pause for mark but sweep,compacting can be done with app run (no separate pause) > and so on 
-4. **G1 GC **-> Heap is divided into region and they are garbage colleted in parallel fashion depending on whoever has more amount of garbage
+Different types of GC
+-
+
+**Serial GC** 
+   -> runs on single core ( app run > GC pause(mark,sweep,compacting) > again app run > and so on 
+**Parallel GC **
+   -> Same as Serial GC but GC runs on multiple cores 
+**Concurrrent Mark and Sweep GC** 
+   -> app run > shorter GC pause for mark but sweep,compacting can be done with app run (no separate pause) > and so on 
+**G1 GC **
+   -> Heap is divided into region and they are garbage colleted in parallel fashion depending on whoever has more amount of garbage
   
 **NOTE:** Default GC: 1.6 = Parallel GC but 1.7 = G1 GC
 
 Link: https://www.youtube.com/watch?v=UnaNQgzw4zY
 <img width="1233" alt="image" src="https://github.com/abhijitxroy/last-min-prep/assets/161963891/e724436f-e70e-4498-83e1-db6f0c0e9195">
 
-11. Parallel GC VS CMS GC
-    -
+Parallel GC VS CMS GC
+-
   - Parallel GC is similar to Serial GC but GC runs on multiple cores
   - Whereas app run > shorter GC pause for mark and remark but sweep,compacting can be done with app run (no separate pause) > and so on 
 
