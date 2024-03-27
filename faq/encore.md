@@ -37,6 +37,7 @@
         3. **Concurrrent Mark and Sweep GC** => app run > shorter GC pause for mark but sweep,compacting can be done with app run (no separate pause) > and so on 
         4. **G1 GC **-> Heap is divided into region and they are garbage colleted in parallel fashion depending on whoever has more amount of garbage
         **NOTE:** Default GC: 1.6 = Parallel GC but 1.7 = G1 GC
+ Link: https://www.youtube.com/watch?v=UnaNQgzw4zY
 <img width="1233" alt="image" src="https://github.com/abhijitxroy/last-min-prep/assets/161963891/e724436f-e70e-4498-83e1-db6f0c0e9195">
 
 11. Parallel GC VS CMS GC
