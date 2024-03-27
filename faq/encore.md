@@ -73,10 +73,8 @@ Add Dependency: First, you need to add the jBCrypt library to your project. You 
           <version>0.4</version>
       </dependency>
 Generate Salt and Hash Password: In your Java code, use BCrypt to generate a salt and hash the password before storing it in the database.
-java
-Copy code
-import org.mindrot.jbcrypt.BCrypt;
 
+      import org.mindrot.jbcrypt.BCrypt;
       public class PasswordHashing 
       {
           public static String hashPassword(String password) 
