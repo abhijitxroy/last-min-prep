@@ -2,32 +2,44 @@
    -
    Database performance tuning is a critical aspect of ensuring that database systems operate efficiently and effectively. Here are some key strategies for tuning database performance:
 
-   **Indexing:** Proper indexing can significantly improve query performance by allowing the database to quickly locate and retrieve data. Analyze query patterns and identify columns frequently used in WHERE clauses or JOIN conditions for indexing.
+   **Indexing:**
+   - Proper indexing can significantly improve query performance by allowing the database to quickly locate and retrieve data. Analyze query patterns and identify columns frequently used in WHERE clauses or JOIN conditions for indexing.
          
-   **Query Optimization:** Review and optimize SQL queries to minimize resource consumption and execution time. Techniques include rewriting queries, using appropriate joins, avoiding unnecessary functions in WHERE clauses, and reducing data retrieval.
+   **Query Optimization:**
+   - Review and optimize SQL queries to minimize resource consumption and execution time. Techniques include rewriting queries, using appropriate joins, avoiding unnecessary functions in WHERE clauses, and reducing data retrieval.
          
-   **Database Schema Design:** Design the database schema to minimize redundant data and ensure efficient data storage and retrieval. Normalize the database structure to reduce data duplication while avoiding over-normalization that can lead to complex joins.
+   **Database Schema Design:**
+    - Design the database schema to minimize redundant data and ensure efficient data storage and retrieval. Normalize the database structure to reduce data duplication while avoiding over-normalization that can lead to complex joins.
          
-   **Hardware Optimization:** Ensure that the hardware infrastructure, including CPU, memory, storage, and network resources, is adequately provisioned to support the database workload. Consider factors such as disk I/O speed, memory allocation, and network bandwidth.
+   **Hardware Optimization:**
+   - Ensure that the hardware infrastructure, including CPU, memory, storage, and network resources, is adequately provisioned to support the database workload. Consider factors such as disk I/O speed, memory allocation, and network bandwidth.
          
-   **Query Caching:** Utilize query caching mechanisms provided by the database management system (DBMS) or implement application-level caching to store frequently accessed query results in memory, reducing the need for repeated query execution.
+   **Query Caching:**
+   - Utilize query caching mechanisms provided by the database management system (DBMS) or implement application-level caching to store frequently accessed query results in memory, reducing the need for repeated query execution.
          
-   **Partitioning:** Partition large tables or indexes into smaller, more manageable segments based on certain criteria (e.g., range, hash) to improve query performance and manageability.
+   **Partitioning:**
+   - Partition large tables or indexes into smaller, more manageable segments based on certain criteria (e.g., range, hash) to improve query performance and manageability.
          
-   **Concurrency Control:** Optimize transaction isolation levels to balance data consistency requirements with concurrency and performance. Choose the appropriate isolation level (e.g., READ COMMITTED, REPEATABLE READ) based on the application's requirements.
+   **Concurrency Control:**
+   - Optimize transaction isolation levels to balance data consistency requirements with concurrency and performance. Choose the appropriate isolation level (e.g., READ COMMITTED, REPEATABLE READ) based on the application's requirements.
          
-   **Database Configuration Tuning:** Adjust database configuration parameters (e.g., buffer sizes, connection pool settings, caching mechanisms) to optimize performance based on workload characteristics and available hardware resources.
+   **Database Configuration Tuning:**
+   - Adjust database configuration parameters (e.g., buffer sizes, connection pool settings, caching mechanisms) to optimize performance based on workload characteristics and available hardware resources.
          
-   **Monitoring and Profiling:** Continuously monitor database performance metrics (e.g., CPU usage, memory usage, disk I/O) using monitoring tools or built-in DBMS features. Identify performance bottlenecks and hotspots through profiling and performance analysis.
+   **Monitoring and Profiling:**
+   - Continuously monitor database performance metrics (e.g., CPU usage, memory usage, disk I/O) using monitoring tools or built-in DBMS features. Identify performance bottlenecks and hotspots through profiling and performance analysis.
          
-   **Regular Maintenance:** Perform routine maintenance tasks such as index reorganization, statistics updates, and database backups to ensure optimal performance and data integrity over time.
+   **Regular Maintenance:**
+   - Perform routine maintenance tasks such as index reorganization, statistics updates, and database backups to ensure optimal performance and data integrity over time.
          
    By employing these strategies and continuously monitoring and optimizing database performance, organizations can ensure that their database systems meet performance requirements and scale effectively to handle growing workloads.
+
    
-3. DB Isolation level
+3. Database Isolation level
    -
+
 **Read Uncommitted:**
-    - This is the lowest isolation level. Transactions can read data that has been modified but not yet committed by other transactions, leading to dirty reads, non-repeatable reads, and phantom reads.
+- This is the lowest isolation level. Transactions can read data that has been modified but not yet committed by other transactions, leading to dirty reads, non-repeatable reads, and phantom reads.
 
 **Read Committed:** 
 - This isolation level ensures that transactions only read committed data. It prevents dirty reads by allowing a transaction to read data only after it has been committed by other transactions. However, it may still encounter non-repeatable reads and phantom reads.
@@ -48,20 +60,45 @@ It's important for developers and database administrators to understand the char
    
 5. Dirty read
    -
-A dirty read occurs in a database transaction when one transaction reads data from a row that has been modified by another transaction but not yet committed. This means that the data being read might be in an inconsistent or intermediate state.
+- A dirty read occurs in a database transaction when one transaction reads data from a row that has been modified by another transaction but not yet committed. This means that the data being read might be in an inconsistent or intermediate state.
 
-For example, consider Transaction A updating a particular row in a database and Transaction B reading that row before Transaction A commits its changes. If Transaction A ultimately rolls back its changes, Transaction B would have read data that was never meant to be persisted, leading to a dirty read.
+- For example, consider Transaction A updating a particular row in a database and Transaction B reading that row before Transaction A commits its changes. If Transaction A ultimately rolls back its changes, Transaction B would have read data that was never meant to be persisted, leading to a dirty read.
 
-Dirty reads are typically not desirable in database systems because they can lead to incorrect or misleading results. They can occur when transactions do not properly isolate their changes from each other, often due to lower isolation levels being used or insufficient concurrency control mechanisms.
+- Dirty reads are typically not desirable in database systems because they can lead to incorrect or misleading results. They can occur when transactions do not properly isolate their changes from each other, often due to lower isolation levels being used or insufficient concurrency control mechanisms.
 
-To prevent dirty reads, databases typically implement isolation levels that control the visibility of data modifications made by concurrent transactions, ensuring that transactions see a consistent view of the database. These isolation levels, such as Read Committed or Serializable, help maintain data consistency and prevent concurrency anomalies.
+- To prevent dirty reads, databases typically implement isolation levels that control the visibility of data modifications made by concurrent transactions, ensuring that transactions see a consistent view of the database. These isolation levels, such as Read Committed or Serializable, help maintain data consistency and prevent concurrency anomalies.
 
 
 6. Using jdk-8, print array of name => char & their frequecny count
    -
-         Answer.
    
-7. How would you store password in DB? => BCrypt & Salt
+         import java.util.Arrays;
+         import java.util.Map;
+         import java.util.function.Function;
+         import java.util.stream.Collectors;
+      
+         public class CharacterFrequencyCounter
+         {
+             public static void main(String[] args)
+            {
+                 String[] names = {"Alice", "Bob", "Charlie", "David", "Alice"};
+         
+                 // Concatenate all names into a single string
+                 String allNames = Arrays.stream(names).collect(Collectors.joining());
+         
+                 // Count frequency of each character
+                 Map<Character, Long> frequencyMap = allNames.chars()
+                         .mapToObj(c -> (char) c)
+                         .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+         
+                 // Print character frequency count
+                 frequencyMap.forEach((character, frequency) ->
+                         System.out.println("Character: " + character + ", Frequency: " + frequency));
+             }
+         }
+
+   
+8. How would you store password in DB? => BCrypt & Salt
    -
 - In Java, you can securely store passwords in a database using hashing and salting techniques. Here's a basic example using the bcrypt hashing algorithm with the BCrypt library:
 
