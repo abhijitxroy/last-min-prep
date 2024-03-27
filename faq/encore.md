@@ -63,16 +63,16 @@ To prevent dirty reads, databases typically implement isolation levels that cont
    
 7. How would you store password in DB? => BCrypt & Salt
    -
-In Java, you can securely store passwords in a database using hashing and salting techniques. Here's a basic example using the bcrypt hashing algorithm with the BCrypt library:
+- In Java, you can securely store passwords in a database using hashing and salting techniques. Here's a basic example using the bcrypt hashing algorithm with the BCrypt library:
 
-Add Dependency: First, you need to add the jBCrypt library to your project. You can do this by including the appropriate dependency in your build configuration. If you're using Maven, add the following dependency to your pom.xml:
+- Add Dependency: First, you need to add the jBCrypt library to your project. You can do this by including the appropriate dependency in your build configuration. If you're using Maven, add the following dependency to your pom.xml:
 
       <dependency>
           <groupId>org.mindrot</groupId>
           <artifactId>jbcrypt</artifactId>
           <version>0.4</version>
       </dependency>
-Generate Salt and Hash Password: In your Java code, use BCrypt to generate a salt and hash the password before storing it in the database.
+- Generate Salt and Hash Password: In your Java code, use BCrypt to generate a salt and hash the password before storing it in the database.
 
       import org.mindrot.jbcrypt.BCrypt;
       public class PasswordHashing 
@@ -110,13 +110,13 @@ Generate Salt and Hash Password: In your Java code, use BCrypt to generate a sal
 - Store the hashed password and salt in your database. Make sure to securely manage the salt and store it alongside the hashed password.
 When a user logs in, you can retrieve the hashed password and salt from the database, then use the verifyPassword method to compare the provided password with the stored hashed password.
 
-Remember to handle exceptions and error cases appropriately, and consider additional security measures such as encryption for sensitive data and secure transmission of passwords.
+- Remember to handle exceptions and error cases appropriately, and consider additional security measures such as encryption for sensitive data and secure transmission of passwords.
 
 
 8. Sql injection?
    -
    
-SQL injection in Java typically occurs when user input is concatenated directly into SQL queries without proper validation or parameterization. Here's an example of how SQL injection can occur in a Java application:
+- SQL injection in Java typically occurs when user input is concatenated directly into SQL queries without proper validation or parameterization. Here's an example of how SQL injection can occur in a Java application:
 
          import java.sql.*;      
          public class SQLInjectionExample 
@@ -153,12 +153,12 @@ SQL injection in Java typically occurs when user input is concatenated directly 
               }
           }
       }
-In this example, the userInput variable is directly concatenated into the SQL query without any validation or parameterization. If an attacker provides malicious input such as ' OR '1'='1, the resulting query becomes:
+- In this example, the userInput variable is directly concatenated into the SQL query without any validation or parameterization. If an attacker provides malicious input such as ' OR '1'='1, the resulting query becomes:
 
       SELECT * FROM users WHERE username = '' OR '1'='1'
-This query would return all records from the users table, bypassing any intended authentication mechanism.
+- This query would return all records from the users table, bypassing any intended authentication mechanism.
 
-To prevent SQL injection in Java, you should use parameterized queries or prepared statements. Here's how you can rewrite the previous example using a prepared statement:
+- To prevent SQL injection in Java, you should use parameterized queries or prepared statements. Here's how you can rewrite the previous example using a prepared statement:
 
       import java.sql.*;
 
@@ -194,12 +194,12 @@ To prevent SQL injection in Java, you should use parameterized queries or prepar
               }
           }
       }
-With parameterized queries, the user input is treated as a parameter value rather than part of the SQL query itself, effectively preventing SQL injection attacks.
+- With parameterized queries, the user input is treated as a parameter value rather than part of the SQL query itself, effectively preventing SQL injection attacks.
 
 
 9. Differnce between object level lock & class level lock
    -
-Object-level locking and class-level locking are two concurrency control mechanisms used in Java to synchronize access to shared resources among multiple threads. Here's the difference between them:
+- Object-level locking and class-level locking are two concurrency control mechanisms used in Java to synchronize access to shared resources among multiple threads. Here's the difference between them:
 
 **Object-Level Locking:**
 - In object-level locking, each instance of a class has its own lock associated with it.
@@ -229,11 +229,11 @@ Example:
               // This method is synchronized using class-level lock
           }
       }
-In summary, object-level locking synchronizes access to instance methods or blocks on a per-object basis, while class-level locking synchronizes access to static methods or blocks on a per-class basis. The choice between them depends on the specific concurrency requirements and the shared resources being accessed in your Java application.
+- In summary, object-level locking synchronizes access to instance methods or blocks on a per-object basis, while class-level locking synchronizes access to static methods or blocks on a per-class basis. The choice between them depends on the specific concurrency requirements and the shared resources being accessed in your Java application.
    
 10. Proxy Design pattern implementation and real time usage.
     -
-   The Proxy Design Pattern provides a surrogate or placeholder for another object to control access to it. It is useful in scenarios where you want to add additional functionality or control access to an object without modifying its code directly. Here's an implementation of the Proxy Design Pattern in Java along with a real-time usage example:
+- The Proxy Design Pattern provides a surrogate or placeholder for another object to control access to it. It is useful in scenarios where you want to add additional functionality or control access to an object without modifying its code directly. Here's an implementation of the Proxy Design Pattern in Java along with a real-time usage example:
 
 Implementation:
 
@@ -327,16 +327,18 @@ In real-world applications, you may encounter situations where using proxies can
 
 11. Different types of GC
     -
-        1. **Serial GC** -> runs on single core ( app run > GC pause(mark,sweep,compacting) > again app run > and so on 
-        2. **Parallel GC **-> Same as Serial GC but GC runs on multiple cores 
-        3. **Concurrrent Mark and Sweep GC** => app run > shorter GC pause for mark but sweep,compacting can be done with app run (no separate pause) > and so on 
-        4. **G1 GC **-> Heap is divided into region and they are garbage colleted in parallel fashion depending on whoever has more amount of garbage
-        **NOTE:** Default GC: 1.6 = Parallel GC but 1.7 = G1 GC
- Link: https://www.youtube.com/watch?v=UnaNQgzw4zY
+1. **Serial GC** -> runs on single core ( app run > GC pause(mark,sweep,compacting) > again app run > and so on 
+2. **Parallel GC **-> Same as Serial GC but GC runs on multiple cores 
+3. **Concurrrent Mark and Sweep GC** => app run > shorter GC pause for mark but sweep,compacting can be done with app run (no separate pause) > and so on 
+4. **G1 GC **-> Heap is divided into region and they are garbage colleted in parallel fashion depending on whoever has more amount of garbage
+  
+**NOTE:** Default GC: 1.6 = Parallel GC but 1.7 = G1 GC
+
+Link: https://www.youtube.com/watch?v=UnaNQgzw4zY
 <img width="1233" alt="image" src="https://github.com/abhijitxroy/last-min-prep/assets/161963891/e724436f-e70e-4498-83e1-db6f0c0e9195">
 
 11. Parallel GC VS CMS GC
     -
-        - Parallel GC is similar to Serial GC but GC runs on multiple cores
-        - Whereas app run > shorter GC pause for mark and remark but sweep,compacting can be done with app run (no separate pause) > and so on 
-12. 
+  - Parallel GC is similar to Serial GC but GC runs on multiple cores
+  - Whereas app run > shorter GC pause for mark and remark but sweep,compacting can be done with app run (no separate pause) > and so on 
+
