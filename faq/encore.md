@@ -63,16 +63,15 @@ To prevent dirty reads, databases typically implement isolation levels that cont
    
 7. How would you store password in DB? => BCrypt & Salt
    -
-   In Java, you can securely store passwords in a database using hashing and salting techniques. Here's a basic example using the bcrypt hashing algorithm with the BCrypt library:
+In Java, you can securely store passwords in a database using hashing and salting techniques. Here's a basic example using the bcrypt hashing algorithm with the BCrypt library:
 
 Add Dependency: First, you need to add the jBCrypt library to your project. You can do this by including the appropriate dependency in your build configuration. If you're using Maven, add the following dependency to your pom.xml:
-xml
-Copy code
-<dependency>
-    <groupId>org.mindrot</groupId>
-    <artifactId>jbcrypt</artifactId>
-    <version>0.4</version>
-</dependency>
+
+      <dependency>
+          <groupId>org.mindrot</groupId>
+          <artifactId>jbcrypt</artifactId>
+          <version>0.4</version>
+      </dependency>
 Generate Salt and Hash Password: In your Java code, use BCrypt to generate a salt and hash the password before storing it in the database.
 java
 Copy code
