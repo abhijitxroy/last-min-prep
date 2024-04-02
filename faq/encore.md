@@ -388,3 +388,87 @@ Parallel GC VS CMS GC
   - Parallel GC is similar to Serial GC but GC runs on multiple cores
   - Whereas app run > shorter GC pause for mark and remark but sweep,compacting can be done with app run (no separate pause) > and so on 
 
+To Be Prepared
+-
+
+      roles responsi
+      contribution
+      datastructre - tree graph, binar tree, mirror image, complexity.
+      boolean var, multithrrad rewrite => thread safe
+      t1 - w , t2 read 
+      jbms
+      prog shchronization singleton dp
+      encryption => code on encryption
+      collection of array - no jdk collection
+      troubleshoot
+      app server = web server?
+      anagram prog = 4times => design and code 
+      - act, tac => same lengh, char
+      - print all at a time
+      - optimize it
+      
+      power of 2 - bitwise operator
+      binary 7 n 3 =
+      
+      (4+1)*(6+2)/3 => thread => parallel execution
+      
+      binary tree impl => add 2-3 level nd print the data.
+      
+      anagram = tac, act , cat, pin => search cat => 3
+      pair programming 
+      
+      
+      create table => find biggest, smallest search
+      design or create = read excel file and store in db
+      
+      bank debit but not reflecting= how resolve
+      
+      sort array
+      
+      keyword is static and where to use
+      
+      what object? use?
+      
+      why this keyword.
+      
+      clone?
+      
+      reflection => write n explain
+      
+      hashmap (3 times) 
+      
+      tree prog - write n explain
+      
+      scenarion- 2 times
+      - there is a parking and 3 entrance => how many coming in and getting parked = threading
+      - how would you count the no of vechle
+      - how would you say exit 1 and how many.
+      
+      thread safe how?
+      
+      second largest no using anagram program
+      
+      multithreading prog => explain
+      
+      binary search
+      - min elem, max elem, swaping how?
+      
+      2 str => abcd- cdab - rotational arrya => either left or right
+      
+      missing element from an array, duplicate can be possible
+      
+      min lowest value?
+      
+      tcp n udp diff
+      
+      http ?
+
+
+
+
+
+
+
+
+
+
